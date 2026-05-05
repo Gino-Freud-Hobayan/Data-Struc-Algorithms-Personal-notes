@@ -74,6 +74,7 @@ Top Student: Anna
 
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 using namespace std;
@@ -156,7 +157,8 @@ int main()
     // print grades and add them all to get total
     for(int j = 0; j < num_of_subjects; j++)
     {
-        cout << grades[i][j] << " ";
+        cout << grades[i][j] << " ";   // print grades
+        
         total += grades[i][j];
     }
     
@@ -167,6 +169,8 @@ int main()
         
     // Print Total and Average
     cout << "\t" << total << "\t" << average << endl;
+
+
 
     // find out who Top Student
     if (average > highestAvg) 
