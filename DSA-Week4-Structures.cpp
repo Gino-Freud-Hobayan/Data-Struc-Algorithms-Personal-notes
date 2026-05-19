@@ -76,8 +76,9 @@ Course: BSCS
 Average: 71
 Remarks: FAILED
 
-
 */
+
+
 
 
 #include <iostream>
@@ -98,7 +99,7 @@ struct Student_structure {
 
 // function for displaying student records
 
-// I used int size to determine the number of students in the array, which is 5 in this case.
+// int size - to determine the num of students in the array
 void display_student_records(Student_structure students[], int size) 
 {
     cout << "\n========== STUDENT RECORDS ==========" << endl;
@@ -127,7 +128,7 @@ void display_student_records(Student_structure students[], int size)
 
 int main()
 {
-    Student_structure students[5];
+    Student_structure students[5];  // creating an array of 5 students
 
     //  student record - inputs
     for (int i = 0; i < 5; i++) 
@@ -148,7 +149,8 @@ int main()
         cout << "Final Grade: ";
         cin >> students[i].finalgrade;
 
-        cin.ignore(); 
+
+        cin.ignore();  // helpful so it doesnt skip
 
 
         // average = midterm + finals / 2
@@ -162,7 +164,5 @@ int main()
 
 
 }
-
-
 
 
