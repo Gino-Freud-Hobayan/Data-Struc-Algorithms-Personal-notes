@@ -84,8 +84,7 @@ Remarks: FAILED
 #include <cstring>
 using namespace std;
 
-
-struct Student {
+struct Student_structure {
     char studentID[20];
     char fullname[50];
     char course[20];
@@ -97,15 +96,43 @@ struct Student {
 
 
 
+// function for displaying student records
+
+// I used int size to determine the number of students in the array, which is 5 in this case.
+void display_student_records(Student_structure students[], int size) 
+{
+    cout << "\n========== STUDENT RECORDS ==========" << endl;
+    
+    for (int i = 0; i < size; i++) 
+    {
+        cout << "ID: " << students[i].studentID << endl;
+        cout << "Name: " << students[i].fullname << endl;
+        cout << "Course: " << students[i].course << endl;
+        cout << "Average: " << students[i].average << endl;
+        
+        if (students[i].average >= 75) 
+        {
+            cout << "Remarks: PASSED" << endl;
+        } 
+        
+        else 
+        {
+            cout << "Remarks: FAILED" << endl;
+        }
+        
+        cout << endl;
+    }
+}
+
+
 int main()
 {
-    Student students[5];
+    Student_structure students[5];
 
-    // for student record - inputs
-    // max of 5 - for loop up to 5
+    //  student record - inputs
     for (int i = 0; i < 5; i++) 
     {
-        cout << "Enter Record for Student #" << i + 1 << endl;
+        cout << "Enter Record for Student #" << i + 1 << endl;    // 1, 2, 3, 4, 5
         cout << "Student ID: ";
         cin.getline(students[i].studentID, 20);
 
@@ -121,38 +148,21 @@ int main()
         cout << "Final Grade: ";
         cin >> students[i].finalgrade;
 
+        cin.ignore(); 
 
 
-        // average = (midterm + final) / 2
+        // average = midterm + finals / 2
         students[i].average = (students[i].midterm + students[i].finalgrade) / 2;
-}
-
-
-
-    // print student records
-    cout << "\n========== STUDENT RECORDS ==========" << endl;
-    
-    for (int i = 0; i < 5; i++) 
-    {
-        cout << "ID: " << students[i].studentID << endl;
-        cout << "Name: " << students[i].fullname << endl;
-        cout << "Course: " << students[i].course << endl;
-        cout << "Average: " << students[i].average << endl;
-        
-        if (students[i].average >= 75) {
-            cout << "Remarks: PASSED" << endl;
-        } 
-        
-        else 
-        {
-            cout << "Remarks: FAILED" << endl;
-        }
-        
-        cout << endl;
     }
 
 
+
+    // call the function
+    display_student_records(students, 5);
+
+
 }
+
 
 
 
